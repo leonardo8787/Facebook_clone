@@ -1,4 +1,5 @@
 import 'package:facebook_interface_aula/modelos/modelos.dart';
+import 'package:facebook_interface_aula/modelos/postagens.dart';
 /*
 * Fontes imagens: https://source.unsplash.com/
 * Foto específica:
@@ -10,86 +11,67 @@ import 'package:facebook_interface_aula/modelos/modelos.dart';
 /* Usuário Logado */
 Usuario usuarioAtual = Usuario(
     nome: "Jamilton Damasceno",
-    urlImagem: "https://source.unsplash.com/EQFtEzJGERg/800x600"
-);
+    urlImagem: "https://source.unsplash.com/EQFtEzJGERg/800x600");
 
 /* Lista de usuários online */
 List<Usuario> usuariosOnline = [
   Usuario(
       nome: "José Renato de almeida",
-      urlImagem: "https://source.unsplash.com/UJLAMjEjISo/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/UJLAMjEjISo/800x600"),
   Usuario(
       nome: "Maria Almeida",
-      urlImagem: "https://source.unsplash.com/0wRXAXqIp58/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/0wRXAXqIp58/800x600"),
   Usuario(
       nome: "Fernando Lima de albuquerque filho",
-      urlImagem: "https://source.unsplash.com/59HOrlAKTOU/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/59HOrlAKTOU/800x600"),
   Usuario(
       nome: "Marcela Faria",
-      urlImagem: "https://source.unsplash.com/GXzHGgzraHc/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/GXzHGgzraHc/800x600"),
   Usuario(
       nome: "Carlos Eduardo",
-      urlImagem: "https://source.unsplash.com/y8yimL21z8s/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/y8yimL21z8s/800x600"),
   Usuario(
       nome: "Joana Santos",
-      urlImagem: "https://source.unsplash.com/PXWiHU7pbeg/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/PXWiHU7pbeg/800x600"),
   Usuario(
       nome: "Rodrigo Caio",
-      urlImagem: "https://source.unsplash.com/MS0RHQ1enek/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/MS0RHQ1enek/800x600"),
   Usuario(
       nome: "Pedro do Carmo",
-      urlImagem: "https://source.unsplash.com/9ChfwZzv4ys/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/9ChfwZzv4ys/800x600"),
 ];
 
-
-/* Lista de estórias */
 List<Estoria> estorias = [
   Estoria(
-      usuario: usuariosOnline[0],
-      urlImagem: "https://source.unsplash.com/JMWjOup32Fk/800x600",
-      foiVisualizado: true,
+    usuario: usuariosOnline[0],
+    urlImagem: "https://source.unsplash.com/JMWjOup32Fk/800x600",
+    foiVisualizado: true,
   ),
   Estoria(
-      usuario: usuariosOnline[1],
-      urlImagem: "https://source.unsplash.com/no_TCkPUq_s/800x600",
-      foiVisualizado: true,
+    usuario: usuariosOnline[1],
+    urlImagem: "https://source.unsplash.com/no_TCkPUq_s/800x600",
+    foiVisualizado: true,
   ),
   Estoria(
       usuario: usuariosOnline[2],
-      urlImagem: "https://source.unsplash.com/6dX5TPPM34M/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/6dX5TPPM34M/800x600"),
   Estoria(
       usuario: usuariosOnline[3],
-      urlImagem: "https://source.unsplash.com/PO7CGnoDFUI/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/PO7CGnoDFUI/800x600"),
   Estoria(
       usuario: usuariosOnline[4],
-      urlImagem: "https://source.unsplash.com/rewyZqUwAqY/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/rewyZqUwAqY/800x600"),
   Estoria(
       usuario: usuariosOnline[5],
-      urlImagem: "https://source.unsplash.com/1HpQU1evGK8/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/1HpQU1evGK8/800x600"),
   Estoria(
       usuario: usuariosOnline[6],
-      urlImagem: "https://source.unsplash.com/W9z_628BBpc/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/W9z_628BBpc/800x600"),
   Estoria(
       usuario: usuariosOnline[7],
-      urlImagem: "https://source.unsplash.com/DOb-2jd0sbc/800x600"
-  ),
+      urlImagem: "https://source.unsplash.com/DOb-2jd0sbc/800x600"),
 ];
 
-/*
-/* Lista de postagens */
 List<Postagem> postagens = [
   Postagem(
       usuario: usuariosOnline[0],
@@ -98,8 +80,7 @@ List<Postagem> postagens = [
       urlImagem: "https://source.unsplash.com/DOb-2jd0sbc/800x600",
       curtidas: 30,
       comentarios: 3,
-      compartilhamentos: 5
-  ),
+      compartilhamentos: 5),
   Postagem(
       usuario: usuariosOnline[1],
       descricao: "Quero compartilhar com você algo que aconteceu...",
@@ -107,8 +88,7 @@ List<Postagem> postagens = [
       urlImagem: "https://source.unsplash.com/G0H58Z5aPog/800x600",
       curtidas: 30,
       comentarios: 3,
-      compartilhamentos: 5
-  ),
+      compartilhamentos: 5),
   Postagem(
       usuario: usuariosOnline[2],
       descricao: "Não recomendo esse lugar, não fomos bem atendidos",
@@ -116,17 +96,16 @@ List<Postagem> postagens = [
       urlImagem: "https://source.unsplash.com/1a_u4n02YNo/800x600",
       curtidas: 30,
       comentarios: 3,
-      compartilhamentos: 5
-  ),
+      compartilhamentos: 5),
   Postagem(
       usuario: usuariosOnline[3],
-      descricao: "Não importa o que você sabe, mas o que faz com o que você sabe!",
+      descricao:
+          "Não importa o que você sabe, mas o que faz com o que você sabe!",
       tempoAtras: "1h",
       urlImagem: "https://source.unsplash.com/sfL_QOnmy00/800x600",
       curtidas: 30,
       comentarios: 3,
-      compartilhamentos: 5
-  ),
+      compartilhamentos: 5),
   Postagem(
       usuario: usuariosOnline[4],
       descricao: "Preciso de indicações de eletricista, meu chuveiro pifou :(",
@@ -134,8 +113,7 @@ List<Postagem> postagens = [
       urlImagem: "https://source.unsplash.com/_tWMmC9CQXQ/800x600",
       curtidas: 30,
       comentarios: 3,
-      compartilhamentos: 5
-  ),
+      compartilhamentos: 5),
   Postagem(
       usuario: usuariosOnline[5],
       descricao: "Que chuva maravilhosa!",
@@ -143,8 +121,7 @@ List<Postagem> postagens = [
       urlImagem: "https://source.unsplash.com/a4wUKaaMGWQ/800x600",
       curtidas: 30,
       comentarios: 3,
-      compartilhamentos: 5
-  ),
+      compartilhamentos: 5),
   Postagem(
       usuario: usuariosOnline[6],
       descricao: "Um dia mais que especial, nos divertimos bastante ;)",
@@ -152,8 +129,7 @@ List<Postagem> postagens = [
       urlImagem: "https://source.unsplash.com/YS1OOmHAFD0/800x600",
       curtidas: 100,
       comentarios: 30,
-      compartilhamentos: 3
-  ),
+      compartilhamentos: 3),
   Postagem(
       usuario: usuariosOnline[7],
       descricao: "VOCÊ É DO TAMANHO DOS SEUS SONHOS! Lute, persista, "
@@ -165,7 +141,5 @@ List<Postagem> postagens = [
       urlImagem: "https://source.unsplash.com/Ng2Hg1YMMuU/800x600",
       curtidas: 230,
       comentarios: 25,
-      compartilhamentos: 3
-  ),
+      compartilhamentos: 3),
 ];
-*/

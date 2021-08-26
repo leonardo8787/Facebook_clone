@@ -1,7 +1,9 @@
 import 'package:facebook_interface_aula/componentes/area_criar_postagem.dart';
 import 'package:facebook_interface_aula/componentes/area_estoria.dart';
 import 'package:facebook_interface_aula/componentes/botao_circulo.dart';
+import 'package:facebook_interface_aula/componentes/cartao_postagem.dart';
 import 'package:facebook_interface_aula/dados/dados.dart';
+import 'package:facebook_interface_aula/modelos/postagens.dart';
 import 'package:facebook_interface_aula/uteis/paleta_cores.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -27,22 +29,21 @@ class _HomeState extends State<Home> {
             title: Text(
               "facebook",
               style: TextStyle(
-                color: PaletaCores.azulFacebook,
-                fontWeight: FontWeight.bold,
-                fontSize: 28,
-                letterSpacing: -1.2
-              ),
+                  color: PaletaCores.azulFacebook,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 28,
+                  letterSpacing: -1.2),
             ),
             actions: [
               BotaoCirculo(
                 icone: Icons.search,
                 iconeTamanho: 30,
-                onPressed: (){},
+                onPressed: () {},
               ),
               BotaoCirculo(
                 icone: LineIcons.facebookMessenger,
                 iconeTamanho: 30,
-                onPressed: (){},
+                onPressed: () {},
               )
             ],
           ),
@@ -60,11 +61,11 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Container(
-              color: Colors.green,
-              height: 2000,
-            ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context, indice) {
+              Postagem postagem = postagens[indice];
+              return CartaoPostagem(postagem: postagem);
+            }, childCount: postagens.length),
           )
         ],
       ),

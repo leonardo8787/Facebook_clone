@@ -7,41 +7,44 @@ import 'package:line_icons/line_icons.dart';
 
 class CartaoPostagem extends StatelessWidget {
   final Postagem postagem;
-  const CartaoPostagem({
-    Key? key,
-    required this.postagem,
-  }) : super(key: key);
+
+  const CartaoPostagem({Key? key, required this.postagem}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.white,
+      margin: EdgeInsets.symmetric(vertical: 8),
+      padding: EdgeInsets.symmetric(vertical: 8),
       child: Column(
         children: [
-          //cabeçalho
+          //Cabeçalho
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //cabeçalho
                 CabecalhoPostagem(postagem: postagem),
-                Text(postagem.descricao),
-                //descrição
+                Text(postagem.descricao)
               ],
             ),
           ),
-          //imagem
+
+          //Imagem postagem
           Padding(
             padding: EdgeInsets.symmetric(vertical: 8),
             child: CachedNetworkImage(
               imageUrl: postagem.urlImagem,
             ),
           ),
-          //area estatística
+
+          //Área de estátisticasa
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 8),
-            child: EstatisticasPostagem(postagem: postagem),
-          ),
+            padding: EdgeInsets.symmetric(horizontal: 8),
+            child: EstatisticasPostagem(
+              postagem: postagem,
+            ),
+          )
         ],
       ),
     );
@@ -50,10 +53,9 @@ class CartaoPostagem extends StatelessWidget {
 
 class EstatisticasPostagem extends StatelessWidget {
   final Postagem postagem;
-  const EstatisticasPostagem({
-    Key? key,
-    required this.postagem,
-  }) : super(key: key);
+
+  const EstatisticasPostagem({Key? key, required this.postagem})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +66,7 @@ class EstatisticasPostagem extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(4),
               decoration: BoxDecoration(
-                color: PaletaCores.azulFacebook,
-                shape: BoxShape.circle,
-              ),
+                  color: PaletaCores.azulFacebook, shape: BoxShape.circle),
               child: Icon(
                 Icons.thumb_up,
                 size: 10,
@@ -77,31 +77,21 @@ class EstatisticasPostagem extends StatelessWidget {
               width: 4,
             ),
             Expanded(
-              child: Text(
-                "${postagem.curtidas}",
-                style: TextStyle(
-                  color: Colors.grey[700],
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 20,
-            ),
+                child: Text(
+              "${postagem.curtidas}",
+              style: TextStyle(color: Colors.grey[700]),
+            )),
             Text(
               "${postagem.comentarios} comentários",
-              style: TextStyle(
-                color: Colors.grey[700],
-              ),
+              style: TextStyle(color: Colors.grey[700]),
             ),
             SizedBox(
-              width: 4,
+              width: 8,
             ),
             Text(
               "${postagem.compartilhamentos} compartilhamentos",
-              style: TextStyle(
-                color: Colors.grey[700],
-              ),
-            ),
+              style: TextStyle(color: Colors.grey[700]),
+            )
           ],
         ),
         Divider(
@@ -110,31 +100,28 @@ class EstatisticasPostagem extends StatelessWidget {
         Row(
           children: [
             BotaoPostagem(
-              icone: Icon(
-                LineIcons.thumbsDownAlt,
-                color: Colors.grey[700],
-              ),
-              texto: "Curtir",
-              onTap: () {},
-            ),
+                icone: Icon(
+                  LineIcons.thumbsUpAlt,
+                  color: Colors.grey[700],
+                ),
+                texto: "Curtir",
+                onTap: () {}),
             BotaoPostagem(
-              icone: Icon(
-                LineIcons.alternateCommentAlt,
-                color: Colors.grey[700],
-              ),
-              texto: "Comentar",
-              onTap: () {},
-            ),
+                icone: Icon(
+                  LineIcons.alternateCommentAlt,
+                  color: Colors.grey[700],
+                ),
+                texto: "Comentar",
+                onTap: () {}),
             BotaoPostagem(
-              icone: Icon(
-                LineIcons.share,
-                color: Colors.grey[700],
-              ),
-              texto: "Compartilhar",
-              onTap: () {},
-            ),
+                icone: Icon(
+                  LineIcons.share,
+                  color: Colors.grey[700],
+                ),
+                texto: "Compartilhar",
+                onTap: () {}),
           ],
-        ),
+        )
       ],
     );
   }
@@ -145,16 +132,14 @@ class BotaoPostagem extends StatelessWidget {
   final String texto;
   final VoidCallback onTap;
 
-  const BotaoPostagem({
-    Key? key,
-    required this.icone,
-    required this.onTap,
-    required this.texto,
-  }) : super(key: key);
+  const BotaoPostagem(
+      {Key? key, required this.icone, required this.texto, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
+        child: Material(
       child: InkWell(
         onTap: onTap,
         child: Container(
@@ -165,23 +150,21 @@ class BotaoPostagem extends StatelessWidget {
                 width: 4,
               ),
               Text(
-                //"${postagem.compartilhamentos} compartilhamentos",
                 texto,
                 style: TextStyle(
-                  color: Colors.grey[700],
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+                    color: Colors.grey[700], fontWeight: FontWeight.bold),
+              )
             ],
           ),
         ),
       ),
-    );
+    ));
   }
 }
 
 class CabecalhoPostagem extends StatelessWidget {
   final Postagem postagem;
+
   const CabecalhoPostagem({Key? key, required this.postagem}) : super(key: key);
 
   @override
@@ -200,40 +183,24 @@ class CabecalhoPostagem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                postagem.tempoAtras,
-                style: TextStyle(color: Colors.grey[200]),
+                postagem.usuario.nome,
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
-              Column(
+              Row(
                 children: [
-                  Text(
-                    postagem.usuario.nome,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "${postagem.tempoAtras} - ",
-                      ),
-                      Icon(
-                        Icons.public,
-                        size: 12,
-                        color: Colors.grey[600],
-                      ),
-                    ],
-                  ),
+                  Text("${postagem.tempoAtras} - "),
+                  Icon(
+                    Icons.public,
+                    size: 12,
+                    color: Colors.grey[600],
+                  )
                 ],
-              ),
+              )
             ],
           ),
         ),
-        //informações do usuário
-        IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.more_horiz),
-        ),
+        IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz))
       ],
     );
   }

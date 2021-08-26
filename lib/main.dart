@@ -5,6 +5,9 @@ void main() {
   runApp(MaterialApp(
     title: "Facebook",
     debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+      scaffoldBackgroundColor: Colors.white,
+    ),
     home: Home(),
   ));
 }
